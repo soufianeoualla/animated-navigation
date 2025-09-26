@@ -44,7 +44,7 @@ const Navigation = () => {
           onMouseLeave={() => setIsHovred(false)}
           className="bg-light-purple h-12 flex items-center gap-x-1 rounded-3xl w-[150px]  justify-center  text-black text-lg font-medium "
         >
-          <AnimatePresence>
+          <AnimatePresence key={isHovred ? "hovered" : "not-hovered"}>
             {!isHovred && (
               <motion.span
                 initial={{ opacity: 0, x: 10 }}
@@ -62,7 +62,9 @@ const Navigation = () => {
                 <HiOutlineDevicePhoneMobile className="text-2xl" />
               </motion.span>
             )}
-            <a href="">Download</a>
+          </AnimatePresence>
+          <a href="">Download</a>
+          <AnimatePresence>
             {isHovred && (
               <motion.span
                 initial={{ opacity: 0, x: -10 }}
