@@ -4,7 +4,6 @@ import { HiDownload } from "react-icons/hi";
 import { AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { motion } from "motion/react";
-import CustomListItem from "./CustomListItem";
 
 const links = [
   {
@@ -20,6 +19,18 @@ const links = [
     url: "/products",
   },
 ];
+
+export function CustomListItem({ label }: { label: string }) {
+  return (
+    <li className="group h-[30px] p-2 overflow-hidden cursor-pointer">
+      <div className="flex flex-col  items-center justify-center group-hover:-translate-y-7.5 group-hover:font-medium transition duration-700">
+        <span>{label}</span>
+        <span>{label}</span>
+      </div>
+    </li>
+  );
+}
+
 const Navigation = () => {
   const [isHovred, setIsHovred] = useState(false);
   return (
